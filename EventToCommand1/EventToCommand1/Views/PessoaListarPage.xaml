@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="EventToCommand1.Views.PessoaListarPage"
+             xmlns:behavior="clr-namespace:EventToCommand1.Behavior"
+             xmlns:converter="clr-namespace:EventToCommand1.Converters"
+             xmlns:local="clr-namespace:EventToCommand1.ViewModel">
+
+    <NavigationPage.TitleView>
+        <StackLayout>
+            <Label Text="Lista de Pessoas" FontAttributes="Bold" HorizontalTextAlignment="Center" TextColor="White" FontSize="Medium"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:SelectedItemEventArgsToSelectedItemConverter x:Key="EventToCommandConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <!--<ContentPage.BindingContext>
+        <local:PessoaListarViewModel/>
+    </ContentPage.BindingContext>-->
+
+    <StackLayout Margin="20">
+        <ListView ItemsSource="{Binding Path=Pessoas}" HasUnevenRows="True" VerticalScrollBarVisibility="Never">
+            <d:ListView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>First Item</x:String>
+                    <x:String>Second Item</x:String>
+                    <x:String>Third Item</x:String>
+                    <x:String>Fourth Item</x:String>
+                    <x:String>Fifth Item</x:String>
+                    <x:String>Sixth Item</x:String>
+                    <x:String>Seventh Item</x:String>
+                </x:Array>
+            </d:ListView.ItemsSource>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame Padding="5" Margin="10">
+                            <StackLayout>
+                                <Label Text="{Binding Nome}" d:Text="Nome"/>
+                                <Label Text="{Binding Idade}" d:Text="Idade"/>
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.Behaviors>
+                <behavior:EventToCommandBehavior EventName="ItemSelected" Command="{Binding Path=ItemSelectedCommand}" Converter="{StaticResource EventToCommandConverter}"/>
+            </ListView.Behaviors>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="EventToCommand1.Views.PessoaExibirPage">
+
+    <NavigationPage.TitleView>
+        <StackLayout Margin="70, 0">
+            <Label Text="Detalhar Pessoa" TextColor="White" FontAttributes="Bold" FontSize="Medium"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <StackLayout Margin="20">
+        <Frame>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="ID:"/>
+                    <Label Text="{Binding Id}" d:Text="100"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Nome:"/>
+                    <Label Text="{Binding Nome}" d:Text="Nome"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Idade:"/>
+                    <Label Text="{Binding Idade}" d:Text="Idade"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Cidade:"/>
+                    <Label Text="{Binding Cidade}" d:Text="Cidade"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Estado:"/>
+                    <Label Text="{Binding Estado}" d:Text="Estado"/>
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+
+</ContentPage>
